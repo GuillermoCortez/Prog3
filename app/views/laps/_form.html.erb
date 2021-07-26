@@ -1,0 +1,43 @@
+<%= form_for(lap) do |f| %>
+  <% if lap.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lap.errors.count, "error") %> prohibited this lap from being saved:</h2>
+
+      <ul>
+      <% lap.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :position %>
+    <%= f.number_field :position %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time %>
+    <%= f.time_select :time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pilot_id %>
+    <%= collection_select(:lap, :pilot_id, Pilot.all, :id, :name) %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :race_id %>
+    <%= collection_select(:lap, :race_id, Race.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

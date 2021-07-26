@@ -1,0 +1,34 @@
+<%= form_for(pilot_team) do |f| %>
+  <% if pilot_team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pilot_team.errors.count, "error") %> prohibited this pilot_team from being saved:</h2>
+
+      <ul>
+      <% pilot_team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= f.label :pilot_id %>
+    <%= collection_select(:pilot_team, :pilot_id, Pilot.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :team_id %>
+    <%= collection_select(:pilot_team, :team_id, Team.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :championship_id %>
+    <%= collection_select(:pilot_team, :championship_id, Championship.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

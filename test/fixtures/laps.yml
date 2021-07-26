@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  position: 1
+  time: 2021-07-26 18:54:25
+  pilot: one
+  race: one
+
+two:
+  number: 1
+  position: 1
+  time: 2021-07-26 18:54:25
+  pilot: two
+  race: two

@@ -1,0 +1,49 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Races</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/brands">Brands</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/teams">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pilot_teams">Add pilot to team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/pilots">Pilots</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/championships">Championships</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/races">Race</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/circuits">Circuit</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/laps">Race lap</a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/laps"><%=current_user.email%></a>
+        </li>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary btn-outline" %>
+        
+      </ul>
+      <% else %>
+          <%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %> &nbsp;
+        <% end %>
+    </div>
+  </div>
+</nav>
